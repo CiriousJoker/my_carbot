@@ -1,0 +1,52 @@
+body {
+  font-family: "Roboto";
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+a {
+  color: #2196F3;
+}
+
+code {
+  color: #009688 !important;
+}
+
+
+.hljs {
+  background: #161b22;
+  border-radius: 12px;
+  border: none;
+}
+
+.hljs-comment {
+  color: #8b949e;
+}
+
+.hljs-title {
+  color: #e5c07b;
+}
+
+.hljs-keyword {
+  color: #61afef;
+}

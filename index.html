@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" type="text/css" href="style.css">
+<p><em>(this is only available in German as it was a university project)</em></p>
+<h1 id="mycarbot">MyCarbot</h1>
+<p>Ein Roboter zur Reinigung von abgegrenzten Bereichen mithilfe einer Rechteck-Partitionierungs-Strategie.</p>
+<p>Der Roboter wird hier nur mithilfe von Carbot simuliert, einem Forschungsprojekt von <a href="https://www.th-nuernberg.de/person/roth-joerg/">Professor Jörg Roth</a> an der Technischen Hochschule Nürnberg Georg Simon Ohm.</p>
+<p><a href="http://wireless-earth.org/carbot.html">Mehr Informationen.</a></p>
+<h1 id="gliederung">Gliederung</h1>
+<ul>
+<li><a href="#strategie">1 Strategie</a></li>
+<li><a href="#theoretischer-ablauf">2 Theoretischer Ablauf</a>
+<ul>
+<li><a href="#initialer-welt-scan">2.1 Initialer Welt Scan</a></li>
+<li><a href="#n%C3%A4chstes-rechteck-finden">2.2 Nächstes Rechteck finden</a>
+<ul>
+<li><a href="#l%C3%BCckenbehebung">Lückenbehebung</a></li>
+<li><a href="#welt-partitionieren">Welt partitionieren</a></li>
+<li><a href="#startposition-des-rechtecks-finden">Startposition des Rechtecks finden</a></li>
+<li><a href="#dimensionen-des-rechtecks-finden">Dimensionen des Rechtecks finden</a></li>
+<li><a href="#rechteck-ausw%C3%A4hlen">Rechteck auswählen</a></li>
+</ul>
+</li>
+<li><a href="#der-weg-zum-rechteck">2.3 Der Weg zum Rechteck</a></li>
+<li><a href="#rechteck-reinigen">2.4 Rechteck reinigen</a></li>
+</ul>
+</li>
+<li><a href="#beispielhafter-ablauf">3 Beispielhafter Ablauf</a></li>
+<li><a href="#%C3%BCberblick-%C3%BCber-den-code">4 Überblick über den Code</a></li>
+<li><a href="#probleme-des-ansatzes">5 Probleme des Ansatzes</a>
+<ul>
+<li><a href="#zweigeteilte-r%C3%A4ume">5.1 Zweigeteilte Räume</a></li>
+<li><a href="#sehr-viele-kleine-hindernisse">5.2 Sehr viele kleine Hindernisse</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-strategie">1 Strategie</h1>
+<p>Die Strategie wurde grundlegend in zwei separate Probleme unterteilt, die separat und nacheinander abgehandelt werden. Schritt eins ist ein Abscannen der kompletten Welt oder zumindest großen Teilen davon. In Schritt wird die Welt in Rechtecke eingeteilt, die nacheinander befahren und gereinigt werden.</p>
+<h1 id="2-theoretischer-ablauf">2 Theoretischer Ablauf</h1>
+<p>Der genaue Code wird hier nicht erklärt, dafür ist die Dokumentation im Code selbst gedacht. An dieser Stelle soll nur ein grober Überblick über das Verhalten in verschiedenen Situationen und den generallen Ablauf gegeben werden.</p>
+<h2 id="21-initialer-welt-scan">2.1 Initialer Welt Scan</h2>
+<p>Schritt eins wird erreicht, indem der Carbot möglichst weit aus der Welt navigiert wird. Die automatische Routenplanung sorgt dafür, dass alle Außengrenzen der Welt erkannt werden, weil nur so sichergestellt ist, dass es nicht doch noch einen Weg aus den Außengrenzen heraus zum Punkt außerhalb der begrenzten Welt gibt. Kleinere Lücken bei der Erkennung sind dabei in Ordnung.</p>
+<table>
+<thead>
+<tr>
+<th>Beispiel</th>
+<th>Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="images/world_scan.png" height="196"></td>
+<td>Roboter sucht erst einen Weg links um den Kreis, dann rechts um den Kreis und dann oben, bis er die Oberseite des Quadrats findet.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-n%C3%A4chstes-rechteck-finden">2.2 Nächstes Rechteck finden</h2>
+<p>Dieser Schritt ist nicht so einfach, daher Aufteilung in Unterschritte:</p>
+<h3 id="l%C3%BCckenbehebung">Lückenbehebung</h3>
+<p>Hier werden kleine vertikale und horizontale Lücken in der Wand behoben, um Fehler bei der Planung zu reduzieren. Außerdem werden die Ecken kleiner Hindernisse ergänzt, um die Zahl kleinerer gefundener Rechtecke zu vermindern.</p>
+<p>Dieser Schritt wird auch vor jeder Partitionierung durchgeführt.</p>
+<p><code>testFixGrid()</code></p>
+<table>
+<thead>
+<tr>
+<th>Vorher</th>
+<th>Nachher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="images/fix_grid_before.png" width=120></td>
+<td><img src="images/fix_grid_after.png" width=120></td>
+</tr>
+</tbody>
+</table>
+<h3 id="welt-partitionieren">Welt partitionieren</h3>
+<p><code>testPartitioning()</code> / <code>testRepartitionOnObstacle()</code></p>
+<p>Hier wird erst die bekannte Welt gelöscht (abgesehen von den Außengrenzen, Hindernissen und als &quot;done&quot; markierten Bereichen). Dann wird neu partitioniert und das erste Rechteck wird als nächstes Ziel zurückgegeben.</p>
+<table>
+<thead>
+<tr>
+<th><code>testPartitioning()</code></th>
+<th><code>testRepartitionOnObstacle()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="images/partition_simple.png" width=120></td>
+<td><img src="images/repartition_on_obstacle.png" width=120></td>
+</tr>
+</tbody>
+</table>
+<h3 id="startposition-des-rechtecks-finden">Startposition des Rechtecks finden</h3>
+<p>Um ein Rechteck für die Partitionierung zu finden wird erst eine Startposition gesucht. Diese muss als &quot;dirty&quot; markiert sein und innerhalb der befahrbaren Welt liegen. Jede Koordinate mit unendlich Platz in eine der vier Richtungen wird als out-of-world angesehen. Danach wird die erste &quot;dirty&quot; Zelle von unten links genommen:</p>
+<table>
+<thead>
+<tr>
+<th>Visualisierung</th>
+<th>Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="images/find_start_position_with_bounds.png" width="256"></td>
+<td><strong>Lila:</strong> Außengrenzen des Grids.<br> <strong>Blau:</strong> Pfad von unten links der nacheinander abgelaufen wird. <br><strong>Gelb:</strong> Existierendes Rechteck. <br><strong>Grün:</strong> Gefundene Startposition. <br></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dimensionen-des-rechtecks-finden">Dimensionen des Rechtecks finden</h3>
+<p>Es wird bei der Startposition begonnen und die Distanz nach oben gemessen (im Beispiel 4). Danach wird spaltenweise weitergesucht, bis entweder die Wand erreicht wird oder wie im Beispiel die gemessene Distanz nach oben weniger ist als die &quot;Zieldistanz&quot;.</p>
+<img src="images/find_rectangle.png" height="196">
+<h3 id="rechteck-ausw%C3%A4hlen">Rechteck auswählen</h3>
+<p>Hier wurde nur ein rudimentärer Ansatz implementiert, bei dem das erste befahrbare Rechteck (mindestens eine Höhe und Breite von 2) zurückgegeben wird. Hier könnte als Ausblick ein intelligenterer Algorithmus implementiert werden, der Routen zu den jeweiligen Startpunkten plant und das Rechteck mit der kürzesten Route zurückgibt. Dadurch würden auch ein zweigeteilter langer vertikaler Raum besser abgehandelt werden als bisher.</p>
+<h2 id="23-der-weg-zum-rechteck">2.3 Der Weg zum Rechteck</h2>
+<p>Erst fährt der Roboter zum Zentrum des Rechtecks. Dadurch ist sichergestellt, dass er freie Bahn zur unteren linken Ecke hat. Im Anschluss fährt er zur unteren linken Ecke, welche im Normalfall zu weit in der Wand ist. Um dennoch einen Startpunkt zu finden wird iterativ versucht, so nah wie möglich zu kommen ohne in der Wand stecken zu bleiben.</p>
+<table>
+<thead>
+<tr>
+<th>Visualisierung</th>
+<th>Erklärung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="images/corner_finding_position.png" height="196"></td>
+<td><strong>Orange:</strong> Idealler Startpunkt. <br><strong>Blau:</strong> Möglicher Startpunkt wird n mal oben verschoben bis es klappt.<br><strong>Grün:</strong> War eine Spalte nicht erfolgreich, dann nächste Spalte probieren. <br><strong>Lila:</strong> Dimensionen des Roboters. <br><strong>Schwarz:</strong> Gefundener Startpunkt.<br></td>
+</tr>
+</tbody>
+</table>
+<p>Spalten, die nicht verwendet werden konnten (im Beispiel die ersten vier) werden als &quot;done&quot; markiert und für weitere Rechtecksplanung mit Hindernissen gleichgesetzt. Danach wird neu partitioniert.</p>
+<figure>
+  <img src="images/corner_debug.png" width="128">
+  <figcaption>fig 1: Spalte wurde als "done" markiert</figcaption>
+</figure>
+<h2 id="24-rechteck-reinigen">2.4 Rechteck reinigen</h2>
+<p>An sich ein triviales Problem, wenn der Roboter nicht daran scheitern würde gerade Linien zu fahren (siehe Screenshot). Den Roboter mittels einer manuellen TrajectorySequence auf eine gerade Bahn zu schicken geht leider nicht, da der Roboter ab und zu trotzdem vom Weg abkommt und in die Wand fährt. Aus diesem Grund musste die normale Langstrecken-Routenplanung verwendet werden, die aber mit einer willkürlichen Richtung los fährt. Eine korrekter Startwinkel kann auch mit entsprechenden Parametern nicht garantiert werden. Daher wurde eine initiale Drehung mit einer manuellen Trajectory Sequence erzwungen.</p>
+<img src="images/clean_rectangle.png" height="196">
+<p>Wurde eine Rechteck-Spalte gereinigt, wird sie im Grid als &quot;done&quot; markiert (vgl. fig 1). Ist ein Rechteck fertig gereinigt, wird das nächste Rechteck gesucht.</p>
+<h1 id="3-beispielhafter-ablauf">3 Beispielhafter Ablauf</h1>
+<p>Der idealle Ablauf einer Reinigung kann mithilfe der <code>CleaningPlannerTest</code> Klasse getestet werden (zusammen mit den anderen Funktionalitäten).</p>
+<figure>
+<img src="images/simulation.png" width="128">
+<figcaption>Screenshot aus der Simulation</figcaption>
+</figure>
+<h1 id="4-%C3%BCberblick-%C3%BCber-den-code">4 Überblick über den Code</h1>
+<p>Da ich Visual Studio Code nutze und ein eigenes IDE Script gebaut habe, das für meine Java, JavaFX etc. Pfade angepasst habe, ist im .zip Archiv der Standard Batchfile aus dem Starterpaket.<br></p>
+<p><strong>Hier ein grober Überblick über die Klassenstruktur:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment">/**
+ * Der Robotcontroller.
+ * Kümmert sich darum, dass der Roboter möglichst fehlerfrei und ohne durch Wände zu glitchen ans Ziel gelangt.
+ * Wichtige Funktionalitäten:
+ * - Welt abscannen
+ * - Zum Startpunkt eines Rechtecks fahren
+ * - Rechteck reinigen
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCarbot</span> </span>{}
+
+<span class="hljs-comment">/**
+ * Managed das Grid und plant allgemein die high-level Cleaning Strategie.
+ * Wichtige Funktionalitäten:
+ * - Hindernisse ins Grid eintragen
+ * - Grid in Rechtecke partitionieren
+ * - Nächstes Rechteck finden
+ * - Bereiche im Grid markieren
+ * - Grid ins Terminal ausgeben
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CleaningPlanner</span> </span>{}
+
+<span class="hljs-comment">/**
+ * Eine Test-Runner, um einzelne Funktionalitäten des CleaningPlanners zu testen,
+ * ohne den Simulator zu starten und mit der Möglichkeit, Breakpoints zu setzen.
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CleaningPlannerTest</span> </span>{}
+
+<span class="hljs-comment">/**
+ * Hilfsklasse: Ein generisches Rechteck mit ein paar Zusatzfunktionen,
+ * um Koordinaten zwischen grid&lt;-&gt;world umzurechnen.
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyRectangle</span> </span>{}
+
+
+<span class="hljs-comment">/**
+ * Hilfsklasse: Ein MyRectangle mit einer zusätzlichen ID.
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CleanableRectangle</span> </span>{}
+
+<span class="hljs-comment">/**
+ * Hilfsklasse: Ähnlich zu MyRectangle, bildet aber nur die Außengrenzen ab.
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bounds</span> </span>{}
+
+<span class="hljs-comment">/**
+ * Hilfsklasse: Konvertierung von grid&lt;-&gt;world Koordinaten.
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GridUtils</span> </span>{}
+
+<span class="hljs-comment">/**
+ * Hilfsklasse: Farbige Konsolenausgaben, einheitliche print() Funktionen für Tests &amp; Simulator.
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogUtils</span> </span>{}
+</div></code></pre>
+<h1 id="5-probleme-des-ansatzes">5 Probleme des Ansatzes</h1>
+<h2 id="51-zweigeteilte-r%C3%A4ume">5.1 Zweigeteilte Räume</h2>
+<p>Schmale vertikale zweigeteilte Räume mit vielen kleinen Hindernissen führen dazu, dass <code>nextRectangle()</code> oft aufgerufen wird. Bei optimaler Platzierung der Hindernisse fährt der Roboter abwechselnd zu einem Hindernis auf der linken/rechten Seite des Ganges.</p>
+<p>Ein möglicher Lösungsansatz wäre hier, das nächste Rechteck basierend auf der Distanz zum Roboter zu wählen. Distanz ist hierbei die Distanz der geplanten Route, nicht Luftlinie.</p>
+<h2 id="52-sehr-viele-kleine-hindernisse">5.2 Sehr viele kleine Hindernisse</h2>
+<p>Viele kleine Hindernisse, die versetzt angeordnet sind führen dazu, dass die gebildeten Rechtecke sehr klein werden. Der optimale Weg (die Welt in schrägen Bahnen abzufahren) wird nicht erkannt.</p>
+<p>Hier gibt es mit einer Rechteck-Partitionierungs-Strategie keinen wirklichen Lösungsansatz. Statt Rechtecken könnten hier evtl. auch 45°-Schrägen über das Grid gelegt werden, aber wahrscheinlich ist ein grundlegend verschiedener Ansatz hier die bessere Wahl.</p>
+
+</body>
+</html>
